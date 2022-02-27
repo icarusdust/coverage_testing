@@ -22,7 +22,14 @@ workflows:
           echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/android/local.properties"
       - name: Get Flutter packages
         script: |
-          cd . && flutter packages pub get        
+          cd . && flutter packages pub get      
+      - name: Testing
+        script: |
+          cd . && flutter test
+      - name: Coverage
+        script: |
+          cd . && dart pub global activate test_coverage
+          cd . && test_coverage
       - name: Build APK with Flutter  
         script: |
           cd . && flutter build apk --release
