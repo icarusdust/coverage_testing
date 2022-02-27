@@ -24,15 +24,15 @@ workflows:
                 echo $CM_KEYSTORE | base64 --decode > /tmp/keystore.keystore                  
             - name: Build Android release
               script: |
-                cd android && gradle wrapper
+                # cd android && gradle wrapper
                 cd android && ./gradlew assembleRelease
-            - name: Test Build
-              script: |
-                cd android && ./gradlew assembleAndroidTest
-            - name: CodeCov
-              script: |
-                pip install pytest
-                pip install pytest-cov
-                pytest --cov=./ --cov-report=xml
+            # - name: Test Build
+            #   script: |
+            #     cd android && ./gradlew assembleAndroidTest
+            # - name: CodeCov
+            #   script: |
+            #     pip install pytest
+            #     pip install pytest-cov
+            #     pytest --cov=./ --cov-report=xml
         artifacts:
             - android/app/build/outputs/**/*.apk 
