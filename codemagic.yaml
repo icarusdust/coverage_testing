@@ -31,7 +31,7 @@ workflows:
          #!/bin/sh
           cd . && $FLUTTER_ROOT/bin/dart pub global activate test_coverage
           export PATH="$PATH":"$HOME/.pub-cache/bin"
-          cd . && $FLUTTER_ROOT/bin/test_coverage
+          cd . && test_coverage
       - name: Build APK with Flutter  
         script: |
           cd . && flutter build apk --release
