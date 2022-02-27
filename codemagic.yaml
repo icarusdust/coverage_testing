@@ -27,4 +27,5 @@ workflows:
         script: |
           cd . && flutter build apk --release
     artifacts:
-          - build/**/outputs/**/*.apk
+#           - build/**/outputs/**/*.apk
+          - build/**/outputs/apk/**/*.apk 
