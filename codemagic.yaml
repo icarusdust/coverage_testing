@@ -28,8 +28,9 @@ workflows:
           cd . && flutter test
       - name: Coverage
         script: |
-          cd . && dart pub global activate test_coverage
-          cd . && test_coverage
+          dart pub global activate test_coverage
+          export PATH="$PATH":"$HOME/.pub-cache/bin"
+          test_coverage
       - name: Build APK with Flutter  
         script: |
           cd . && flutter build apk --release
